@@ -1,14 +1,19 @@
-def future_tuition(tuition, rate, years):
-    for i in range(years):
-        tuition *= (1 + rate / 100)
-    return tuition
+def get_scores():
+    n = int(input("Enter the number of students: "))
+    scores = []
+    for i in range(n):
+        score = int(input("Enter the score for student {}: ".format(i+1)))
+        scores.append(score)
+    return scores
 
-tuition = 10000
-rate = 5
-years = 10
-future_tuition = future_tuition(tuition, rate, years)
-print(f"Tuition in {years} years: ${future_tuition:.2f}")
+def highest_and_second_highest(scores):
+    scores.sort(reverse=True)
+    highest = scores[0]
+    second_highest = scores[1]
+    return highest, second_highest
 
-years = 4
-total_cost = future_tuition(tuition, rate, years) * years
-print(f"Total cost of {years} years' worth of tuition starting {years} years from now: ${total_cost:.2f}")
+scores = get_scores()
+highest, second_highest = highest_and_second_highest(scores)
+
+print("The highest score is:", highest)
+print("The second highest score is:", second_highest)
